@@ -1,0 +1,496 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1f2833, #0a0e13);
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.app-container {
+    display: flex;
+    background: #1a202c;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    min-height: 600px;
+    max-height: 800px;
+}
+
+/* Sidebar (Sol Panel) Stilleri */
+.sidebar {
+    width: 300px;
+    min-width: 280px;
+    background: #1f2833;
+    padding: 1.5rem;
+    border-right: 1px solid #2d3748;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 10px 0;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #667eea;
+    object-fit: cover;
+}
+
+.user-profile span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    flex-grow: 1;
+}
+
+.user-profile .search-icon {
+    color: #a0aec0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+}
+
+.filters, .projects-section {
+    margin-bottom: 2rem;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    min-height: 44px;
+    box-sizing: border-box;
+}
+
+.filter-item:hover {
+    background: #2d3748;
+    transform: translateX(2px);
+}
+
+.filter-item.active {
+    background: #4c51bf;
+    color: #fff;
+    font-weight: 500;
+}
+
+.filter-item .icon {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.filter-item span:first-of-type {
+    flex-grow: 1;
+}
+
+.filter-item .count {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+}
+
+.filter-item.active .count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.projects-section h3 {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    margin-bottom: 1rem;
+    padding-left: 5px;
+    font-weight: 500;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.project-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.project-list::-webkit-scrollbar-track {
+    background: #1f2833;
+}
+
+.project-list::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    min-height: 44px;
+    box-sizing: border-box;
+}
+
+.project-item:hover {
+    background: #2d3748;
+    transform: translateX(2px);
+}
+
+.project-item.active {
+    background: #4c51bf;
+    color: #fff;
+    font-weight: 500;
+}
+
+.project-item .icon {
+    margin-right: 12px;
+    color: #a0aec0;
+    width: 20px;
+    text-align: center;
+}
+
+.project-item.active .icon {
+    color: #fff;
+}
+
+.project-item span:first-of-type {
+    flex-grow: 1;
+}
+
+.project-item .count {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+}
+
+.project-item.active .count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.add-button {
+    background: #667eea;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    min-height: 44px;
+}
+
+.add-button:hover {
+    background: #4c51bf;
+    transform: translateY(-1px);
+}
+
+.add-button .fas {
+    margin-right: 8px;
+}
+
+/* Main Content (Sağ Panel) Stilleri */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: #1a202c;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2d3748;
+}
+
+.list-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 0;
+}
+
+.list-actions {
+    display: flex;
+    align-items: center;
+}
+
+.list-actions .icon {
+    color: #a0aec0;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+    padding: 8px;
+}
+
+.list-actions .icon:hover {
+    color: #e2e8f0;
+}
+
+.task-input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 2rem;
+    align-items: stretch;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #2d3748;
+    color: #e2e8f0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#task-input::placeholder {
+    color: #a0aec0;
+}
+
+#task-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#add-task-button {
+    background: #667eea;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+#add-task-button:hover {
+    background: #4c51bf;
+    transform: scale(1.02);
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.task-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #1a202c;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}
+
+.task-list li {
+    background: #2d3748;
+    color: #e2e8f0;
+    font-size: 1rem;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.task-list li:hover {
+    transform: translateX(3px);
+    border-color: #4a5568;
+}
+
+.task-list li.checked {
+    color: #a0aec0;
+    text-decoration: line-through;
+    background: #374151;
+    opacity: 0.7;
+}
+
+.task-list li.checked::before {
+    content: '✓';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.task-list li.checked > div:first-child {
+    padding-left: 35px;
+}
+
+.task-list li > div:first-child {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    min-height: 24px;
+}
+
+.task-list li > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.task-list li i,
+.task-list li span:last-child {
+    color: #a0aec0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.task-list li i:hover {
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.task-list li span:last-child:hover {
+    color: #e53e3e;
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.task-list li i.fas.fa-star {
+    color: #fbbf24;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .app-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        border-radius: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: auto;
+        border-right: none;
+        border-bottom: 1px solid #2d3748;
+        padding: 1rem;
+        max-height: 40vh;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+        min-height: 60vh;
+    }
+
+    .list-title {
+        font-size: 1.8rem;
+    }
+
+    .task-input-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #add-task-button {
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    #task-input {
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 1rem 0.75rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .list-title {
+        font-size: 1.5rem;
+    }
+
+    .filter-item,
+    .project-item {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+}
